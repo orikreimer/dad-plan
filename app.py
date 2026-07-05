@@ -4,7 +4,6 @@ from datetime import datetime
 from html import escape
 from pathlib import Path
 
-import altair as alt
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -102,24 +101,16 @@ st.markdown(
     """
     <style>
     :root {
-        --bg: #0b1020;
-        --panel: #151b31;
-        --panel-2: #10172a;
-        --line: rgba(148, 163, 184, 0.18);
-        --text: #f8fafc;
-        --muted: #a9b4c7;
-        --blue: #56c7ff;
-        --violet: #a76cff;
-        --green: #7ee3b0;
-        --amber: #f4c76b;
-        --red: #ff7d9a;
+        --bg: #f7f8fa;
+        --panel: #ffffff;
+        --line: #d9dee7;
+        --text: #172033;
+        --muted: #5b6472;
+        --accent: #2f5f8f;
     }
 
     .stApp {
-        background:
-            radial-gradient(circle at top left, rgba(86, 199, 255, 0.15), transparent 32rem),
-            radial-gradient(circle at 75% 8%, rgba(167, 108, 255, 0.13), transparent 28rem),
-            var(--bg);
+        background: var(--bg);
         color: var(--text);
     }
 
@@ -145,11 +136,11 @@ st.markdown(
 
     .hero {
         border: 1px solid var(--line);
-        background: linear-gradient(135deg, rgba(21, 27, 49, 0.96), rgba(13, 19, 35, 0.96));
+        background: var(--panel);
         border-radius: 8px;
         padding: 1.1rem 1.25rem;
         margin-bottom: 1rem;
-        box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+        box-shadow: none;
     }
 
     .hero-top {
@@ -175,9 +166,9 @@ st.markdown(
 
     .hero-badge {
         white-space: nowrap;
-        color: #dbeafe;
-        background: rgba(86, 199, 255, 0.14);
-        border: 1px solid rgba(86, 199, 255, 0.35);
+        color: var(--muted);
+        background: #f3f5f8;
+        border: 1px solid var(--line);
         border-radius: 999px;
         padding: 0.45rem 0.7rem;
         font-size: 0.82rem;
@@ -188,11 +179,10 @@ st.markdown(
         min-height: 126px;
         border-radius: 8px;
         border: 1px solid var(--line);
-        background:
-            linear-gradient(145deg, rgba(25, 32, 56, 0.98), rgba(13, 19, 35, 0.98)),
-            linear-gradient(90deg, rgba(86, 199, 255, 0.28), rgba(167, 108, 255, 0.18));
+        border-left: 4px solid var(--accent);
+        background: var(--panel);
         padding: 0.95rem;
-        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+        box-shadow: none;
         overflow: hidden;
     }
 
@@ -215,26 +205,22 @@ st.markdown(
     }
 
     .card-subtitle {
-        color: #cbd5e1;
+        color: var(--muted);
         font-size: 0.86rem;
         line-height: 1.3;
     }
 
     .sparkline {
-        height: 6px;
-        border-radius: 999px;
-        margin-top: 0.85rem;
-        background: linear-gradient(90deg, var(--blue), var(--violet), var(--green));
-        opacity: 0.88;
+        display: none;
     }
 
     .panel {
         border: 1px solid var(--line);
-        background: rgba(21, 27, 49, 0.92);
+        background: var(--panel);
         border-radius: 8px;
         padding: 1rem;
         margin-bottom: 1rem;
-        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.18);
+        box-shadow: none;
     }
 
     .panel-title {
@@ -253,9 +239,9 @@ st.markdown(
     .hebrew-note {
         direction: rtl;
         text-align: right;
-        color: #e5edf8;
-        background: rgba(86, 199, 255, 0.1);
-        border: 1px solid rgba(86, 199, 255, 0.22);
+        color: var(--text);
+        background: #f3f5f8;
+        border: 1px solid var(--line);
         border-radius: 8px;
         padding: 0.85rem 1rem;
         margin: 0.7rem 0 1rem 0;
@@ -264,7 +250,7 @@ st.markdown(
     }
 
     .hebrew-note strong {
-        color: #ffffff;
+        color: var(--text);
     }
 
     .hebrew-note ul {
@@ -277,9 +263,9 @@ st.markdown(
     }
 
     .warning-line {
-        color: #ffe4b5;
-        background: rgba(244, 199, 107, 0.12);
-        border: 1px solid rgba(244, 199, 107, 0.22);
+        color: var(--text);
+        background: #f8f4ea;
+        border: 1px solid #e5d8b6;
         border-radius: 8px;
         padding: 0.7rem 0.8rem;
         margin-top: 0.55rem;
@@ -287,9 +273,9 @@ st.markdown(
     }
 
     .good-line {
-        color: #d7ffe8;
-        background: rgba(126, 227, 176, 0.1);
-        border: 1px solid rgba(126, 227, 176, 0.22);
+        color: var(--text);
+        background: #eef7f1;
+        border: 1px solid #cfe4d5;
         border-radius: 8px;
         padding: 0.7rem 0.8rem;
         margin-top: 0.55rem;
@@ -303,8 +289,8 @@ st.markdown(
     div[data-baseweb="select"] > div,
     div[data-testid="stTextInput"] input,
     div[data-testid="stNumberInput"] input {
-        background: rgba(21, 27, 49, 0.98);
-        border-color: rgba(148, 163, 184, 0.26);
+        background: #ffffff;
+        border-color: var(--line);
         color: var(--text);
         border-radius: 8px;
     }
@@ -318,12 +304,12 @@ st.markdown(
     div[data-testid="stVerticalBlockBorderWrapper"] {
         border-color: var(--line);
         border-radius: 8px;
-        background: rgba(21, 27, 49, 0.86);
-        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.16);
+        background: #ffffff;
+        box-shadow: none;
     }
 
     .stDownloadButton button, .stButton button {
-        background: linear-gradient(90deg, #2a8fce, #8058d8);
+        background: var(--accent);
         color: white;
         border: 0;
         border-radius: 8px;
@@ -335,7 +321,7 @@ st.markdown(
     }
 
     .stTabs [data-baseweb="tab"] {
-        background: rgba(21, 27, 49, 0.85);
+        background: #f3f5f8;
         border-radius: 8px;
         color: var(--muted);
         padding: 0.45rem 0.8rem;
@@ -343,7 +329,7 @@ st.markdown(
 
     .stTabs [aria-selected="true"] {
         color: var(--text);
-        background: rgba(86, 199, 255, 0.14);
+        background: #e6edf5;
     }
 
     @media (max-width: 900px) {
@@ -620,17 +606,10 @@ def render_data_source_note(df: pd.DataFrame) -> None:
 
 
 def render_card(title: str, value: str, subtitle: str = "", accent: str = "blue") -> None:
-    accent_map = {
-        "blue": "var(--blue)",
-        "violet": "var(--violet)",
-        "green": "var(--green)",
-        "amber": "var(--amber)",
-        "red": "var(--red)",
-    }
-    color = accent_map.get(accent, "var(--blue)")
+    del accent
     st.markdown(
         f"""
-        <div class="dashboard-card" style="border-top: 3px solid {color};">
+        <div class="dashboard-card">
             <div class="card-label">{escape(title)}</div>
             <div class="card-value">{escape(value)}</div>
             <div class="card-subtitle">{escape(subtitle)}</div>
@@ -695,7 +674,7 @@ def render_dad_guide() -> None:
         )
 
 
-def apply_filters(df: pd.DataFrame) -> tuple[pd.DataFrame, bool]:
+def apply_filters(df: pd.DataFrame) -> pd.DataFrame:
     with st.container(border=True):
         render_panel_start("Quick filters")
         render_hebrew_note(
@@ -740,7 +719,6 @@ def apply_filters(df: pd.DataFrame) -> tuple[pd.DataFrame, bool]:
             )
             hide_speculative = adv3.checkbox("Hide speculative names", value=False)
             hide_very_high = adv3.checkbox("Hide very high risk names", value=False)
-            compare_groups = adv3.checkbox("Compare stable vs speculative names", value=True)
 
     filtered = df[
         df["category"].isin(category)
@@ -764,260 +742,59 @@ def apply_filters(df: pd.DataFrame) -> tuple[pd.DataFrame, bool]:
     if hide_very_high:
         filtered = filtered[filtered["risk_level"] != "Very high"]
 
-    return filtered, compare_groups
+    return filtered
 
 
 def render_summary_cards(df: pd.DataFrame) -> None:
     ranked = df.sort_values("final_score", ascending=False, na_position="last")
     stable = ranked[ranked["category"].isin([CATEGORY_PURE_PLAY, CATEGORY_DIVERSIFIED])]
-    stable_reit = ranked[ranked["category"] == CATEGORY_PURE_PLAY]
-    volatile = ranked[ranked["category"] == CATEGORY_VOLATILE]
     income_style = ranked[
         (ranked["category"].isin([CATEGORY_PURE_PLAY, CATEGORY_DIVERSIFIED]))
         & (ranked["dividend_yield"].fillna(0) > 0)
     ]
-    overbought_speculative = volatile[volatile["rsi"].apply(_is_number)].sort_values("rsi", ascending=False)
-    positive_pe = ranked[ranked["pe"].apply(_is_number) & (ranked["pe"] > 0)]
+    warnings = ranked[
+        ranked["label"].astype(str).str.contains("Overbought|exploded|High risk / speculative", case=False, na=False)
+    ]
 
     cards = [
         (
-            "Best overall",
+            "Start here",
+            best_row(stable),
+            lambda row: f"Score {fmt_number(row.get('final_score'))} | Risk {row.get('risk_level', 'N/A')}",
+            "blue",
+        ),
+        (
+            "Best overall score",
             best_row(ranked),
             lambda row: f"Score {fmt_number(row.get('final_score'))} | {short_category(row.get('category', ''))}",
             "blue",
         ),
         (
-            "Best stable choice",
-            best_row(stable),
-            lambda row: f"Score {fmt_number(row.get('final_score'))} | Risk {row.get('risk_level', 'N/A')}",
-            "green",
-        ),
-        (
-            "Best AI/HPC upside",
-            best_row(volatile),
-            lambda row: f"Speculative | Score {fmt_number(row.get('final_score'))}",
-            "violet",
-        ),
-        (
-            "Highest AI upside",
-            best_row(ranked, "ai_demand_score"),
-            lambda row: f"AI score {fmt_number(row.get('ai_demand_score'))} | {short_category(row.get('category', ''))}",
-            "violet",
-        ),
-        (
-            "Cheapest valuation",
-            best_row(positive_pe, "pe", ascending=True),
-            lambda row: f"P/E {fmt_number(row.get('pe'))} | Yield {fmt_percent(row.get('dividend_yield'))}",
-            "amber",
-        ),
-        (
-            "Strongest momentum",
-            best_row(ranked, "return_6m"),
-            lambda row: f"6M return {fmt_percent(row.get('return_6m'))} | RSI {fmt_number(row.get('rsi'))}",
+            "Dividend-style name",
+            best_row(income_style, "safety_score"),
+            lambda row: f"Yield {fmt_percent(row.get('dividend_yield'))} | Risk {row.get('risk_level', 'N/A')}",
             "blue",
         ),
         (
-            "Most overbought",
-            best_row(ranked, "rsi"),
-            lambda row: f"RSI {fmt_number(row.get('rsi'))} | Check before chasing",
-            "red",
-        ),
-        (
-            "Hot speculative name",
-            best_row(overbought_speculative, "rsi"),
-            lambda row: f"RSI {fmt_number(row.get('rsi'))} | High risk",
-            "red",
-        ),
-        (
-            "Safest pure-play",
-            best_row(stable_reit, "safety_score"),
-            lambda row: f"Safety {fmt_number(row.get('safety_score'))} | Purity {fmt_number(row.get('data_center_purity_score'))}",
-            "green",
-        ),
-        (
-            "Income-style name",
-            best_row(income_style, "safety_score"),
-            lambda row: f"Yield {fmt_percent(row.get('dividend_yield'))} | Risk {row.get('risk_level', 'N/A')}",
-            "amber",
-        ),
-        (
-            "Riskiest AI/HPC",
-            best_row(volatile, "safety_score", ascending=True),
-            lambda row: f"Safety {fmt_number(row.get('safety_score'))} | {row.get('risk_level', 'N/A')}",
-            "red",
+            "Main warning",
+            best_row(warnings, "rsi"),
+            lambda row: f"{row.get('risk_level', 'N/A')} risk | RSI {fmt_number(row.get('rsi'))}",
+            "blue",
         ),
     ]
 
-    for start in range(0, len(cards), 4):
-        columns = st.columns(4)
-        for col, (title, row, subtitle_fn, accent) in zip(columns, cards[start : start + 4]):
-            with col:
-                if row is None:
-                    render_card(title, "N/A", "", accent)
-                else:
-                    render_card(title, display_name(row), subtitle_fn(row), accent)
+    columns = st.columns(4)
+    for col, (title, row, subtitle_fn, accent) in zip(columns, cards):
+        with col:
+            if row is None:
+                render_card(title, "N/A", "", accent)
+            else:
+                render_card(title, display_name(row), subtitle_fn(row), accent)
 
     render_hebrew_note(
         "כרטיסי סיכום",
-        "הכרטיסים למעלה הם קיצורי דרך. הם לא המלצה לקנייה. למשל Best stable choice מחפש שם יציב יותר, ו-Hot speculative name מצביע על שם שיכול להיות מעניין אבל מסוכן וחם מדי.",
+        "הכרטיסים למעלה הם רק נקודת התחלה. הם לא המלצה לקנייה. עדיף להתחיל מהשם היציב, ואז לפתוח כרטיס חברה ולקרוא את ההסבר.",
     )
-
-
-def chart_theme(chart: alt.Chart) -> alt.Chart:
-    return chart.configure_view(
-        strokeOpacity=0
-    ).configure_axis(
-        labelColor="#cbd5e1",
-        titleColor="#a9b4c7",
-        gridColor="rgba(148, 163, 184, 0.14)",
-        domainColor="rgba(148, 163, 184, 0.2)",
-    ).configure_legend(
-        labelColor="#cbd5e1",
-        titleColor="#a9b4c7",
-        orient="bottom",
-    ).configure_title(
-        color="#f8fafc",
-    ).properties(
-        background="transparent",
-    )
-
-
-def render_dashboard_panels(df: pd.DataFrame) -> None:
-    ranked = df.sort_values("final_score", ascending=False, na_position="last").copy()
-    ranked["Short category"] = ranked["category"].map(short_category)
-    ranked["Name"] = ranked["ticker"] + "  " + ranked["company_name"]
-    top = ranked.head(10)
-
-    left, right = st.columns([1.55, 1])
-    with left:
-        with st.container(border=True):
-            render_panel_start("Top ranked companies")
-            render_hebrew_note(
-                "גרף דירוג",
-                "כאן רואים את החברות שקיבלו את הציון הכללי הגבוה ביותר אחרי הפילטרים. הצבע מראה את סוג החברה, והאורך של העמודה הוא הציון.",
-            )
-            if top.empty:
-                st.info("No companies match the current filters.")
-            else:
-                chart = (
-                    alt.Chart(top)
-                    .mark_bar(cornerRadiusTopRight=5, cornerRadiusBottomRight=5)
-                    .encode(
-                        y=alt.Y("Name:N", sort="-x", title=None, axis=alt.Axis(labelLimit=220)),
-                        x=alt.X("final_score:Q", title="Final score", scale=alt.Scale(domain=[0, 100])),
-                        color=alt.Color(
-                            "Short category:N",
-                            scale=alt.Scale(
-                                range=["#56c7ff", "#7ee3b0", "#a76cff", "#f4c76b"]
-                            ),
-                            title="Category",
-                        ),
-                        tooltip=[
-                            alt.Tooltip("company_name:N", title="Company"),
-                            alt.Tooltip("ticker:N", title="Ticker"),
-                            alt.Tooltip("final_score:Q", title="Score", format=".1f"),
-                            alt.Tooltip("risk_level:N", title="Risk"),
-                            alt.Tooltip("label:N", title="Label"),
-                        ],
-                    )
-                    .properties(height=320)
-                )
-                st.altair_chart(chart_theme(chart), use_container_width=True)
-
-    with right:
-        with st.container(border=True):
-            render_panel_start("Risk mix")
-            render_hebrew_note(
-                "תערובת סיכון",
-                "העיגול מראה כמה מהרשימה נמצאות בכל רמת סיכון. אם יש הרבה High או Very high, הרשימה הנוכחית יותר ספקולטיבית.",
-            )
-            if ranked.empty:
-                st.info("No risk data.")
-            else:
-                risk_counts = ranked.groupby("risk_level").size().reset_index(name="count")
-                risk_counts["risk_level"] = pd.Categorical(
-                    risk_counts["risk_level"],
-                    categories=["Low", "Medium", "High", "Very high"],
-                    ordered=True,
-                )
-                risk_counts = risk_counts.sort_values("risk_level")
-                donut = (
-                    alt.Chart(risk_counts)
-                    .mark_arc(innerRadius=72, outerRadius=116)
-                    .encode(
-                        theta=alt.Theta("count:Q"),
-                        color=alt.Color(
-                            "risk_level:N",
-                            scale=alt.Scale(range=["#7ee3b0", "#56c7ff", "#f4c76b", "#ff7d9a"]),
-                            title="Risk",
-                        ),
-                        tooltip=[
-                            alt.Tooltip("risk_level:N", title="Risk"),
-                            alt.Tooltip("count:Q", title="Companies"),
-                        ],
-                    )
-                    .properties(height=260)
-                )
-                st.altair_chart(chart_theme(donut), use_container_width=True)
-
-                warning_count = int(ranked["label"].astype(str).str.contains("Overbought|exploded", case=False, na=False).sum())
-                speculative_count = int(ranked["label"].astype(str).str.contains("High risk / speculative", na=False).sum())
-                st.markdown(
-                    f"""
-                    <div class="warning-line">Warnings to review: <b>{warning_count}</b></div>
-                    <div class="warning-line">Speculative names shown: <b>{speculative_count}</b></div>
-                    """,
-                    unsafe_allow_html=True,
-                )
-
-
-def render_comparison(df: pd.DataFrame) -> None:
-    comparison = df.copy()
-    comparison["Group"] = np.where(
-        comparison["category"] == CATEGORY_VOLATILE,
-        "Volatile AI/HPC",
-        "Stable / diversified / indirect",
-    )
-    grouped = (
-        comparison.groupby("Group", as_index=False)
-        .agg(
-            Companies=("ticker", "count"),
-            Avg_score=("final_score", "mean"),
-            Avg_6M_return=("return_6m", "mean"),
-            Avg_RSI=("rsi", "mean"),
-            Avg_purity=("data_center_purity_score", "mean"),
-        )
-        .fillna(0)
-    )
-
-    with st.container(border=True):
-        render_panel_start("Stable names vs speculative AI/HPC names")
-        render_hebrew_note(
-            "השוואה בין יציב לספקולטיבי",
-            "לא נכון להשוות REIT יציב לחברת AI/HPC ספקולטיבית כאילו הן אותו דבר. הגרף הזה מפריד בין חברות נדלן ותשתיות יציבות יותר לבין חברות עם סיפור צמיחה מסוכן יותר.",
-        )
-        chart = (
-            alt.Chart(grouped)
-            .mark_bar(cornerRadiusTopLeft=5, cornerRadiusTopRight=5)
-            .encode(
-                x=alt.X("Group:N", title=None),
-                y=alt.Y("Avg_score:Q", title="Average score", scale=alt.Scale(domain=[0, 100])),
-                color=alt.Color("Group:N", scale=alt.Scale(range=["#56c7ff", "#a76cff"]), legend=None),
-                tooltip=[
-                    alt.Tooltip("Group:N"),
-                    alt.Tooltip("Companies:Q"),
-                    alt.Tooltip("Avg_score:Q", format=".1f"),
-                    alt.Tooltip("Avg_6M_return:Q", format=".1f"),
-                    alt.Tooltip("Avg_RSI:Q", format=".1f"),
-                ],
-            )
-            .properties(height=220)
-        )
-        st.altair_chart(chart_theme(chart), use_container_width=True)
-        st.markdown(
-            '<div class="simple-note">Use this as a sanity check: REITs and infrastructure owners should be judged differently from speculative AI/HPC or bitcoin-mining-transition names.</div>',
-            unsafe_allow_html=True,
-        )
 
 
 def make_display_table(df: pd.DataFrame) -> pd.DataFrame:
@@ -1430,7 +1207,7 @@ def main() -> None:
         st.error("watchlist.csv was not found.")
         return
 
-    filtered, compare_groups = apply_filters(df)
+    filtered = apply_filters(df)
     visible = filtered if not filtered.empty else df
 
     render_data_source_note(df)
@@ -1452,11 +1229,6 @@ def main() -> None:
             '<div class="simple-note">P/E is shown when available, but it is not ideal for REITs. Better metrics are FFO, AFFO, Price/FFO, debt/EBITDA, occupancy, and WALE.</div>',
             unsafe_allow_html=True,
         )
-
-    render_dashboard_panels(visible)
-
-    if compare_groups:
-        render_comparison(visible)
 
     with st.container(border=True):
         render_panel_start("Research table")
