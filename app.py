@@ -250,6 +250,32 @@ st.markdown(
         line-height: 1.45;
     }
 
+    .hebrew-note {
+        direction: rtl;
+        text-align: right;
+        color: #e5edf8;
+        background: rgba(86, 199, 255, 0.1);
+        border: 1px solid rgba(86, 199, 255, 0.22);
+        border-radius: 8px;
+        padding: 0.85rem 1rem;
+        margin: 0.7rem 0 1rem 0;
+        line-height: 1.65;
+        font-size: 0.96rem;
+    }
+
+    .hebrew-note strong {
+        color: #ffffff;
+    }
+
+    .hebrew-note ul {
+        margin: 0.45rem 1.2rem 0 0;
+        padding: 0;
+    }
+
+    .hebrew-note li {
+        margin: 0.2rem 0;
+    }
+
     .warning-line {
         color: #ffe4b5;
         background: rgba(244, 199, 107, 0.12);
@@ -619,9 +645,63 @@ def render_panel_start(title: str) -> None:
     st.markdown(f'<div class="panel-title">{escape(title)}</div>', unsafe_allow_html=True)
 
 
+def render_hebrew_note(title: str, body: str) -> None:
+    st.markdown(
+        f"""
+        <div class="hebrew-note">
+            <strong>{escape(title)}</strong><br>
+            {escape(body)}
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_hebrew_bullets(title: str, items: list[str]) -> None:
+    bullet_html = "".join(f"<li>{escape(item)}</li>" for item in items)
+    st.markdown(
+        f"""
+        <div class="hebrew-note">
+            <strong>{escape(title)}</strong>
+            <ul>{bullet_html}</ul>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_dad_guide() -> None:
+    with st.expander("הסבר פשוט בעברית - איך לקרוא את המערכת", expanded=True):
+        render_hebrew_bullets(
+            "מה המערכת עושה",
+            [
+                "המסך הזה לא אומר מה לקנות. הוא מסדר רשימת חברות שקשורות לדאטה סנטרים, נדלן דיגיטלי, חשמל, AI ותשתיות.",
+                "המטרה היא לעזור להבין מי נראית יציבה יותר, מי ספקולטיבית יותר, ומה צריך לבדוק לפני שמדברים על מניה.",
+                "הציון הוא כלי סינון ראשוני בלבד. החלטה אמיתית צריכה בדיקה נוספת בדוחות, מצגות חברה ונתונים עדכניים.",
+            ],
+        )
+        render_hebrew_bullets(
+            "מילון קצר",
+            [
+                "Score: ציון כללי מ-0 עד 100. גבוה יותר אומר שהמניה מתאימה יותר לנושא לפי המודל, לא שהיא בטוח טובה.",
+                "Risk: רמת סיכון. High או Very high אומר שצריך להיזהר במיוחד, גם אם הסיפור נשמע מעניין.",
+                "Purity: כמה החברה באמת ממוקדת בדאטה סנטרים. ציון גבוה אומר קשר ישיר יותר לנושא.",
+                "AI/HPC: ביקוש שקשור לבינה מלאכותית ומחשוב כבד. זה יכול לתת צמיחה, אבל לפעמים גם הרבה סיכון.",
+                "RSI: מדד שמראה אם המניה עלתה חזק מדי בזמן קצר. מעל 75 זו נורת אזהרה לא לרדוף אחרי מחיר חם.",
+                "P/E: מכפיל רווח. שימושי בחלק מהמניות, אבל פחות מתאים ל-REITs כי בנדלן משתמשים יותר ב-FFO/AFFO.",
+                "Dividend yield: תשואת דיבידנד. הכנסה שנתית יחסית למחיר המניה, אם החברה מחלקת דיבידנד.",
+                "52W high gap: כמה המחיר רחוק מהשיא של השנה האחרונה. קרוב מאוד לשיא יכול להיות יקר או חזק, וצריך להבין למה.",
+            ],
+        )
+
+
 def apply_filters(df: pd.DataFrame) -> tuple[pd.DataFrame, bool]:
     with st.container(border=True):
         render_panel_start("Quick filters")
+        render_hebrew_note(
+            "פילטרים",
+            "כאן בוחרים איזה סוג חברות לראות. אם רוצים להתחיל פשוט, להשאיר את הכל פתוח. אם רוצים פחות רעש, לבחור Stable / real-estate style ולהסתיר שמות ספקולטיביים.",
+        )
         col1, col2, col3, col4 = st.columns([1.1, 1.2, 1.1, 1])
 
         view_mode = col1.selectbox(
@@ -777,6 +857,11 @@ def render_summary_cards(df: pd.DataFrame) -> None:
                 else:
                     render_card(title, display_name(row), subtitle_fn(row), accent)
 
+    render_hebrew_note(
+        "כרטיסי סיכום",
+        "הכרטיסים למעלה הם קיצורי דרך. הם לא המלצה לקנייה. למשל Best stable choice מחפש שם יציב יותר, ו-Hot speculative name מצביע על שם שיכול להיות מעניין אבל מסוכן וחם מדי.",
+    )
+
 
 def chart_theme(chart: alt.Chart) -> alt.Chart:
     return chart.configure_view(
@@ -807,6 +892,10 @@ def render_dashboard_panels(df: pd.DataFrame) -> None:
     with left:
         with st.container(border=True):
             render_panel_start("Top ranked companies")
+            render_hebrew_note(
+                "גרף דירוג",
+                "כאן רואים את החברות שקיבלו את הציון הכללי הגבוה ביותר אחרי הפילטרים. הצבע מראה את סוג החברה, והאורך של העמודה הוא הציון.",
+            )
             if top.empty:
                 st.info("No companies match the current filters.")
             else:
@@ -838,6 +927,10 @@ def render_dashboard_panels(df: pd.DataFrame) -> None:
     with right:
         with st.container(border=True):
             render_panel_start("Risk mix")
+            render_hebrew_note(
+                "תערובת סיכון",
+                "העיגול מראה כמה מהרשימה נמצאות בכל רמת סיכון. אם יש הרבה High או Very high, הרשימה הנוכחית יותר ספקולטיבית.",
+            )
             if ranked.empty:
                 st.info("No risk data.")
             else:
@@ -899,6 +992,10 @@ def render_comparison(df: pd.DataFrame) -> None:
 
     with st.container(border=True):
         render_panel_start("Stable names vs speculative AI/HPC names")
+        render_hebrew_note(
+            "השוואה בין יציב לספקולטיבי",
+            "לא נכון להשוות REIT יציב לחברת AI/HPC ספקולטיבית כאילו הן אותו דבר. הגרף הזה מפריד בין חברות נדלן ותשתיות יציבות יותר לבין חברות עם סיפור צמיחה מסוכן יותר.",
+        )
         chart = (
             alt.Chart(grouped)
             .mark_bar(cornerRadiusTopLeft=5, cornerRadiusTopRight=5)
@@ -966,7 +1063,7 @@ def _value_for_compare(row: pd.Series, column: str, formatter=None) -> str:
 
 
 def simple_score_explanation(row: pd.Series) -> list[str]:
-    """Plain-English reasons for why the score looks the way it does."""
+    """Hebrew reasons for why the score looks the way it does."""
     reasons = []
     purity = row.get("data_center_purity_score")
     risk = str(row.get("risk_level", "N/A"))
@@ -978,37 +1075,41 @@ def simple_score_explanation(row: pd.Series) -> list[str]:
     missing = row.get("missing_market_data_count")
 
     if _is_number(purity) and float(purity) >= 80:
-        reasons.append("High data-center purity: this is close to the exact theme.")
+        reasons.append("קשר חזק לדאטה סנטרים: החברה קרובה מאוד לנושא המרכזי של הרשימה.")
     elif _is_number(purity) and float(purity) <= 35:
-        reasons.append("Low data-center purity: this is more indirect.")
+        reasons.append("קשר חלש יותר לדאטה סנטרים: זו חשיפה עקיפה יותר לנושא.")
 
     if risk in {"Low", "Medium"}:
-        reasons.append("Lower risk level helps the score.")
+        reasons.append("רמת סיכון נמוכה או בינונית עוזרת לציון.")
     if risk in {"High", "Very high"} or category == CATEGORY_VOLATILE:
-        reasons.append("High risk lowers the score, even when AI upside is large.")
+        reasons.append("סיכון גבוה מוריד את הציון, גם אם יש פוטנציאל גדול מ-AI או מחשוב כבד.")
 
     if _is_number(dividend) and float(dividend) > 0:
-        reasons.append("Dividend income helps the safety/valuation side.")
+        reasons.append("דיבידנד עוזר לצד היציבות והערכת השווי.")
 
     if _is_number(revenue_growth) and float(revenue_growth) > 15:
-        reasons.append("Yahoo shows strong revenue growth, which supports the growth story.")
+        reasons.append("הנתונים מראים צמיחת הכנסות חזקה, וזה תומך בסיפור הצמיחה.")
     elif _is_number(revenue_growth) and float(revenue_growth) < 0:
-        reasons.append("Yahoo shows falling revenue growth, so the story needs more proof.")
+        reasons.append("הנתונים מראים ירידה בצמיחת ההכנסות, ולכן צריך הוכחה חזקה יותר לסיפור.")
 
     if _is_number(rsi) and float(rsi) > 75:
-        reasons.append("RSI is above 75, so the stock may be too hot right now.")
+        reasons.append("RSI מעל 75, ולכן המניה אולי חמה מדי כרגע ולא כדאי לרדוף בלי בדיקה.")
     if _is_number(six_month) and float(six_month) > 150:
-        reasons.append("The 6-month move is above 150%, so it may have already jumped a lot.")
+        reasons.append("המניה עלתה מעל 150% בחצי שנה, אז ייתכן שחלק גדול מהסיפור כבר במחיר.")
     if _is_number(missing) and float(missing) >= 4:
-        reasons.append("Too much market data is missing, so the score is held back.")
+        reasons.append("חסרים הרבה נתוני שוק, ולכן הציון מקבל פחות ביטחון.")
 
     if not reasons:
-        reasons.append("The score is balanced: no single factor clearly dominates.")
+        reasons.append("הציון מאוזן: אין גורם אחד שמסביר אותו לבד.")
     return reasons
 
 
 def render_peer_comparison(df: pd.DataFrame, row: pd.Series) -> None:
     st.markdown("**Compare against another stock**")
+    render_hebrew_note(
+        "השוואה מול חברה אחרת",
+        "כאן בודקים חברה אחת מול חברה דומה. זה עוזר להבין אם הציון טוב בגלל עסק אמיתי, בגלל מומנטום במחיר, או בגלל שהמתחרה פשוט חלשה יותר.",
+    )
     peer_options = [
         f"{peer.ticker} - {peer.company_name}"
         for peer in df.sort_values("ticker").itertuples()
@@ -1067,6 +1168,10 @@ def render_peer_comparison(df: pd.DataFrame, row: pd.Series) -> None:
 def render_detail(df: pd.DataFrame) -> None:
     with st.container(border=True):
         render_panel_start("Company detail")
+        render_hebrew_note(
+            "כרטיס חברה",
+            "כאן בוחרים חברה אחת ומקבלים הסבר פשוט: מה היא עושה, למה היא יכולה לעבוד, מה מסוכן בה, אילו עובדות אומתו, ומה אומרים המספרים.",
+        )
         if df.empty:
             st.info("No company matches the current filters.")
             return
@@ -1090,6 +1195,10 @@ def render_detail(df: pd.DataFrame) -> None:
             ["Pitch", "Evidence", "Numbers", "Compare"]
         )
         with tab1:
+            render_hebrew_note(
+                "Pitch",
+                "זה החלק הכי חשוב לקריאה מהירה. הוא עונה בשפה פשוטה: האם החברה מעניינת, למה, מה יכול להשתבש, ומה צריך לבדוק לפני שמציגים אותה.",
+            )
             st.markdown("### Simple answer")
             st.info(row_value(row, "simple_answer", "N/A"))
 
@@ -1118,6 +1227,10 @@ def render_detail(df: pd.DataFrame) -> None:
             )
 
             st.markdown("**Why the score looks like this**")
+            render_hebrew_note(
+                "למה הציון יצא ככה",
+                "הרשימה הבאה מסבירה את הציון במילים פשוטות. למשל: קשר חזק לדאטה סנטרים מעלה ציון, סיכון גבוה או מחיר חם מדי מורידים ציון.",
+            )
             for reason in simple_score_explanation(row):
                 st.markdown(f"- {reason}")
 
@@ -1134,6 +1247,10 @@ def render_detail(df: pd.DataFrame) -> None:
                 st.write(row_value(row, "pitch_verdict", "N/A"))
 
         with tab2:
+            render_hebrew_note(
+                "Evidence",
+                "כאן נמצאות העובדות שהמערכת ניסתה לאמת ממקורות ציבוריים. אם לקוח או חוזה לא מופיעים בדוחות או בפרסומי החברה, המערכת לא ממציאה אותם.",
+            )
             st.info(
                 "These facts come from public annual reports, SEC filings, company presentations, or official company releases where available. "
                 "If a company does not name a customer, the app does not guess."
@@ -1197,6 +1314,10 @@ def render_detail(df: pd.DataFrame) -> None:
                 st.write(row_value(row, "ai_exposure_notes", "N/A"))
 
         with tab3:
+            render_hebrew_note(
+                "Numbers",
+                "כאן נמצאים המספרים הפיננסיים והטכניים. לא חייבים להבין הכל. להתחלה כדאי להסתכל על מחיר, שווי שוק, תשואה ל-6 חודשים, RSI, דיבידנד, חוב וצמיחת הכנסות.",
+            )
             metrics = pd.DataFrame(
                 [
                     ["Currency", fmt_text(row_value(row, "currency", "N/A"))],
@@ -1237,6 +1358,10 @@ def render_detail(df: pd.DataFrame) -> None:
             st.caption("P/E is imperfect for REITs. FFO, AFFO, debt/EBITDA, occupancy, and WALE are better once added.")
 
         with tab4:
+            render_hebrew_note(
+                "Compare",
+                "כאן משווים את החברה שבחרת לחברה אחרת מהרשימה. זה טוב לשאלה פשוטה: אם רוצים חשיפה לדאטה סנטרים, למה דווקא החברה הזו ולא מתחרה?",
+            )
             render_peer_comparison(df, row)
 
             verified_links = [
@@ -1282,6 +1407,10 @@ def render_header() -> None:
                         A simple research screen for listed data-center REITs, operators, infrastructure owners,
                         and speculative AI/HPC power-secured names. Research tool only. Not financial advice.
                     </p>
+                    <p class="hero-subtitle" style="direction: rtl; text-align: right; margin-top: 0.65rem;">
+                        בעברית פשוטה: זו מערכת שעוזרת לסדר מניות שקשורות לדאטה סנטרים ולבינה מלאכותית.
+                        היא עוזרת להבין מי נראית יציבה, מי מסוכנת, ומה צריך לבדוק לפני שמדברים על השקעה.
+                    </p>
                 </div>
                 <div class="hero-badge">Updated {datetime.now():%Y-%m-%d %H:%M}</div>
             </div>
@@ -1293,6 +1422,7 @@ def render_header() -> None:
 
 def main() -> None:
     render_header()
+    render_dad_guide()
 
     try:
         df = prepare_data()
@@ -1330,6 +1460,10 @@ def main() -> None:
 
     with st.container(border=True):
         render_panel_start("Research table")
+        render_hebrew_note(
+            "טבלת מחקר",
+            "זו הטבלה המלאה. כל שורה היא חברה. כדאי להתחיל מ-Score, Risk, Category, Simple verdict ו-Pitch verdict. שאר המספרים מיועדים לבדיקה עמוקה יותר.",
+        )
         st.dataframe(make_display_table(filtered), hide_index=True, use_container_width=True, height=520)
 
     render_detail(filtered)
