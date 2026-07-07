@@ -76,16 +76,16 @@ FINAL_FIVE = [
         "ticker": "DLR",
         "company": "Digital Realty Trust",
         "exchange": "NYSE, USA",
-        "role": "REIT גלובלי ישיר של דאטה סנטרים",
-        "risk": "בינוני",
+        "role": "Direct global data-center REIT",
+        "risk": "Medium",
         "checked_price": "$174.68",
         "analyst_view": "S&P Global consensus: Buy",
         "analyst_target": "$219.59",
         "buy_zone": "$175-$185",
-        "what_they_do": "Digital Realty מחזיקה ומפעילה קמפוסים גדולים של דאטה סנטרים ללקוחות ענן, חברות גדולות ולקוחות שצריכים הרבה חשמל ומחשוב.",
-        "why": "זו אחת הדרכים הכי ברורות בבורסה להיחשף לנדלן של דאטה סנטרים ולביקוש של AI ו-hyperscale, בלי ללכת לשמות ספקולטיביים מדי.",
-        "who_said": "בסקר האנליסטים של S&P Global הקונצנזוס הוא Buy ויעד ממוצע של $219.59. BMO נתנה Buy עם יעד $220, Bernstein נתנה Buy עם יעד $232, ו-Truist נתנה Buy עם יעד $225. Ben McMillan מ-IDX Advisors הדגיש את DLR כשם תשתיות AI עם חוזים ארוכים ותזרים יחסית מוגן בטווח הקצר.",
-        "dad_note": "זו הבחירה הראשונה אם רוצים מניית דאטה סנטרים ישירה, אבל בלי להיכנס להרפתקאות מסוכנות מדי.",
+        "what_they_do": "Digital Realty owns and operates large data-center campuses used by cloud, enterprise, and AI-heavy customers.",
+        "why": "This is one of the clearest public-market ways to own global data-center real estate with meaningful AI and hyperscale demand exposure, without moving into very speculative names.",
+        "who_said": "S&P Global's analyst poll showed a Buy consensus and a $219.59 average target. BMO had Buy with a $220 target, Bernstein had Buy with $232, and Truist had Buy with $225. Ben McMillan of IDX Advisors highlighted DLR as an AI-infrastructure name with long leases and relatively protected near-term cash flows.",
+        "dad_note": "This is the first pick if the goal is direct data-center exposure without taking extreme speculative risk.",
         "sources": [
             ("StockAnalysis / S&P Global DLR target", "https://stockanalysis.com/stocks/dlr/forecast/"),
             ("Business Insider / Ben McMillan", "https://www.businessinsider.com/stocks-to-buy-ai-trade-hyperscaler-spending-pullback-amzn-dlr-2026-7"),
@@ -96,16 +96,16 @@ FINAL_FIVE = [
         "ticker": "EQIX",
         "company": "Equinix",
         "exchange": "Nasdaq, USA",
-        "role": "פלטפורמת דאטה סנטרים איכותית וגלובלית",
-        "risk": "נמוך-בינוני",
+        "role": "High-quality global data-center platform",
+        "risk": "Low-medium",
         "checked_price": "$1,005.38",
         "analyst_view": "S&P Global consensus: Buy",
         "analyst_target": "$1,199",
         "buy_zone": "$950-$1,030",
-        "what_they_do": "Equinix מפעילה רשת עולמית של דאטה סנטרים וחיבורי תקשורת, שבה חברות מחברות ענן, רשתות ותשתיות.",
-        "why": "זה שם האיכות בקבוצה: הרבה לקוחות, פריסה עולמית, ופחות תלות בלקוח AI אחד או בחוזה אחד.",
-        "who_said": "בסקר האנליסטים של S&P Global הקונצנזוס הוא Buy ויעד ממוצע של $1,199. Citi נתנה Buy עם יעד $1,260, Bernstein נתנה Buy עם יעד $1,222, ו-Stifel נתנה Buy עם יעד $1,250. UBS שמרה על Buy עם יעד $1,035 אחרי יום האנליסטים של Equinix.",
-        "dad_note": "זו מניית האיכות. היא לא זולה, אבל מתאימה יותר למשקיע סבלני שרוצה פחות דרמה.",
+        "what_they_do": "Equinix operates a global network of data centers and interconnection hubs where companies connect cloud, networks, and infrastructure.",
+        "why": "This is the quality name in the group: many customers, global scale, and less dependence on one AI customer or one major lease.",
+        "who_said": "S&P Global's analyst poll showed a Buy consensus and a $1,199 average target. Citi had Buy with a $1,260 target, Bernstein had Buy with $1,222, and Stifel had Buy with $1,250. UBS kept a Buy rating with a $1,035 target after Equinix's analyst day.",
+        "dad_note": "This is the quality holding. It is not cheap, but it fits a patient investor who wants less drama.",
         "sources": [
             ("StockAnalysis / S&P Global EQIX target", "https://stockanalysis.com/stocks/eqix/forecast/"),
             ("Investopedia / UBS commentary", "https://www.investopedia.com/equinix-stock-leads-s-and-p-decliners-as-investors-digest-growth-targets-11761647"),
@@ -117,16 +117,16 @@ FINAL_FIVE = [
         "ticker": "NXT.AX",
         "company": "NEXTDC",
         "exchange": "ASX, Australia",
-        "role": "מניית צמיחה אוסטרלית ישירה של דאטה סנטרים",
-        "risk": "בינוני-גבוה",
+        "role": "Australian pure-play data-center growth stock",
+        "risk": "Medium-high",
         "checked_price": "A$13.80",
         "analyst_view": "S&P Global consensus: Strong Buy",
         "analyst_target": "A$20.40",
         "buy_zone": "A$14-A$16",
-        "what_they_do": "NEXTDC בונה ומפעילה דאטה סנטרים באוסטרליה ובאסיה-פסיפיק ללקוחות ענן, חברות, ממשלה ו-AI.",
-        "why": "זו חשיפה נקייה יחסית לצמיחת דאטה סנטרים מחוץ לארהב. יש יותר אפסייד, אבל גם יותר סיכון ביצוע, מימון ובנייה.",
-        "who_said": "בסקר האנליסטים של S&P Global הקונצנזוס הוא Strong Buy ויעד ממוצע של A$20.40. Citi נתנה Buy עם יעד A$19.10, RBC נתנה Buy עם יעד A$22.00, ו-Canaccord נתנה Buy עם יעד A$22.55.",
-        "dad_note": "זו מניית צמיחה טובה, אבל היא מסוכנת יותר מ-DLR ו-EQIX כי היא תלויה יותר בבנייה ובמימון.",
+        "what_they_do": "NEXTDC builds and operates data centers in Australia and Asia-Pacific for cloud, enterprise, government, and AI workloads.",
+        "why": "This gives focused non-US exposure to data-center growth. It has more upside potential, but also more execution, funding, and construction risk.",
+        "who_said": "S&P Global's analyst poll showed a Strong Buy consensus and an A$20.40 average target. Citi had Buy with A$19.10, RBC had Buy with A$22.00, and Canaccord had Buy with A$22.55.",
+        "dad_note": "This is a good growth candidate, but it is riskier than DLR and EQIX because it depends more on development and funding.",
         "sources": [
             ("StockAnalysis / S&P Global NXT target", "https://stockanalysis.com/quote/asx/NXT/forecast/"),
             ("NEXTDC investor reports", "https://www.nextdc.com/investor-centre"),
@@ -137,16 +137,16 @@ FINAL_FIVE = [
         "ticker": "BIP / BIP.UN",
         "company": "Brookfield Infrastructure Partners",
         "exchange": "NYSE + TSX, Canada",
-        "role": "תשתיות מגוונות עם חשיפה לדאטה",
-        "risk": "בינוני",
+        "role": "Diversified infrastructure with data exposure",
+        "risk": "Medium",
         "checked_price": "$36.96 USD",
         "analyst_view": "S&P Global consensus: Buy",
         "analyst_target": "$44.18 USD",
         "buy_zone": "BIP under $38 USD",
-        "what_they_do": "Brookfield Infrastructure מחזיקה תשתיות חיוניות: חשמל, תחבורה, אנרגיה ותשתיות דאטה כמו מגדלים, סיבים ודאטה סנטרים.",
-        "why": "זו לא מניית דאטה סנטרים נקייה, אבל היא מגוונת יותר. היא יכולה ליהנות מביקוש ל-AI ותשתיות דיגיטליות בלי להיות תלויה רק בדאטה סנטרים.",
-        "who_said": "בסקר האנליסטים של S&P Global הקונצנזוס הוא Buy ויעד ממוצע של $44.18. CIBC נתנה Buy עם יעד $45, Morgan Stanley נתנה Buy עם יעד $46, TD Cowen נתנה Buy עם יעד $57, Scotiabank נתנה Buy עם יעד $44, ו-BMO נתנה Buy עם יעד $44. Brookfield עצמה אומרת ש-AI מגדיל ביקוש לתשתיות דיגיטליות.",
-        "dad_note": "זו הבחירה אם רוצים תשתיות והכנסה יותר מגוונת, לא מניית דאטה סנטרים טהורה.",
+        "what_they_do": "Brookfield Infrastructure owns essential infrastructure across utilities, transport, energy, and data infrastructure such as towers, fiber, and data centers.",
+        "why": "This is not a pure data-center stock, but it is more diversified. It can benefit from AI and digital infrastructure demand without depending only on data centers.",
+        "who_said": "S&P Global's analyst poll showed a Buy consensus and a $44.18 average target. CIBC had Buy with $45, Morgan Stanley had Buy with $46, TD Cowen had Buy with $57, Scotiabank had Buy with $44, and BMO had Buy with $44. Brookfield itself says AI is increasing demand for digital infrastructure.",
+        "dad_note": "This is the choice if the goal is more diversified infrastructure and income, not a pure data-center stock.",
         "sources": [
             ("StockAnalysis / S&P Global BIP target", "https://stockanalysis.com/stocks/bip/forecast/"),
             ("Brookfield Infrastructure official overview", "https://bip.brookfield.com/"),
@@ -157,16 +157,16 @@ FINAL_FIVE = [
         "ticker": "GMG.AX",
         "company": "Goodman Group",
         "exchange": "ASX, Australia",
-        "role": "נדלן תעשייתי עם צנרת דאטה סנטרים",
-        "risk": "בינוני",
+        "role": "Industrial property platform with data-center pipeline",
+        "risk": "Medium",
         "checked_price": "A$30.68",
         "analyst_view": "S&P Global consensus: Strong Buy",
         "analyst_target": "A$34.66",
         "buy_zone": "A$30-A$32",
-        "what_they_do": "Goodman מחזיקה, מפתחת ומנהלת נכסי לוגיסטיקה ונדלן תעשייתי, ובשנים האחרונות משתמשת בקרקעות עם גישה לחשמל גם לפיתוח דאטה סנטרים.",
-        "why": "זו לא חברת דאטה סנטרים טהורה, אבל היא מפעילת נדלן איכותית עם אפשרות ליהנות מביקוש לדאטה סנטרים.",
-        "who_said": "בסקר האנליסטים של S&P Global הקונצנזוס הוא Strong Buy ויעד ממוצע של A$34.66. Morgan Stanley נתנה Buy עם יעד A$36.15, Citi נתנה Buy עם יעד A$40.00, Bell Potter נתנה Buy עם יעד A$35.50, ו-Jefferies נתנה Buy עם יעד A$34.13.",
-        "dad_note": "חברה טובה, אבל פחות נקייה. כדאי רק במחיר סביר כי האפסייד ליעד הממוצע קטן יותר מאשר ב-NEXTDC.",
+        "what_they_do": "Goodman owns, develops, and manages logistics and industrial property, and is increasingly using power-enabled land for data-center development.",
+        "why": "This is not a pure data-center company, but it is a high-quality real-estate operator with meaningful data-center optionality.",
+        "who_said": "S&P Global's analyst poll showed a Strong Buy consensus and an A$34.66 average target. Morgan Stanley had Buy with A$36.15, Citi had Buy with A$40.00, Bell Potter had Buy with A$35.50, and Jefferies had Buy with A$34.13.",
+        "dad_note": "This is a good company, but less pure. It should only be considered at a reasonable price because the upside to the average target is smaller than NEXTDC.",
         "sources": [
             ("StockAnalysis / S&P Global GMG target", "https://stockanalysis.com/quote/asx/GMG/forecast/"),
             ("Goodman data centres", "https://www.goodman.com/our-properties/data-centres"),
@@ -781,45 +781,46 @@ def render_dad_guide() -> None:
 def render_final_five() -> None:
     with st.container(border=True):
         render_panel_start("Final 5 stocks")
-        render_hebrew_note(
-            "חמש המניות הסופיות לאבא",
-            "זו הרשימה המצומצמת לפי הבדיקה האחרונה: ארהב, אוסטרליה וקנדה בלבד. זה לא אומר לקנות היום בכל מחיר. הטור Buy area הוא אזור מחיר הגיוני לבדיקה נוספת, לא פקודת קנייה.",
+        st.info(
+            "This is the narrowed final list from the latest check: USA, Australia, and Canada only. "
+            "This does not mean buy today at any price. The Buy area is a price zone for further review, not an automatic buy order."
         )
 
         final_chart = pd.DataFrame(
             [
                 {
-                    "דירוג": item["rank"],
-                    "מניה": f"{item['company']} ({item['ticker']})",
-                    "בורסה": item["exchange"],
-                    "סוג חשיפה": item["role"],
-                    "סיכון": item["risk"],
-                    "מחיר שנבדק": item["checked_price"],
-                    "דעת אנליסטים": item["analyst_view"],
-                    "יעד ממוצע": item["analyst_target"],
-                    "אזור קנייה לבדיקה": item["buy_zone"],
+                    "Rank": item["rank"],
+                    "Stock": f"{item['company']} ({item['ticker']})",
+                    "Exchange": item["exchange"],
+                    "Exposure type": item["role"],
+                    "Risk": item["risk"],
+                    "Checked price": item["checked_price"],
+                    "Analyst view": item["analyst_view"],
+                    "Average target": item["analyst_target"],
+                    "Buy area to check": item["buy_zone"],
                 }
                 for item in FINAL_FIVE
             ]
         )
         st.dataframe(final_chart, hide_index=True, use_container_width=True)
-        st.caption("המחירים ויעדי האנליסטים נבדקו באינטרנט ב-2026-07-07. לפני החלטה אמיתית צריך לבדוק שוב מחיר וחדשות.")
+        st.caption("Prices and analyst targets were checked online on 2026-07-07. Re-check price and news before any real decision.")
 
-        render_hebrew_note(
-            "איך לקרוא את הטבלה",
-            "Avg target הוא יעד ממוצע של אנליסטים, לא הבטחה. Buy area הוא אזור שבו כדאי להתחיל בדיקה, לא מחיר שחייבים לקנות בו. אם המחיר רץ הרבה מעל האזור, עדיף לחכות או לבדוק מחדש.",
+        st.info(
+            "How to read this: Average target is an analyst average, not a promise. "
+            "Buy area is a zone where the stock is worth reviewing, not a required purchase price. "
+            "If the stock runs far above that area, it is better to wait or re-check the thesis."
         )
 
-        st.markdown("### הסבר לכל אחת מחמש המניות")
+        st.markdown("### Explanation for each stock")
         for item in FINAL_FIVE:
             with st.expander(f"{item['rank']}. {item['company']} ({item['ticker']})", expanded=item["rank"] == 1):
-                st.markdown(f"**מה החברה עושה:** {item['what_they_do']}")
-                st.markdown(f"**למה היא בחמישייה:** {item['why']}")
-                st.markdown(f"**מי אמר מה:** {item['who_said']}")
-                st.markdown(f"**הערה פשוטה לאבא:** {item['dad_note']}")
-                st.markdown(f"**משמעת מחיר:** יעד האנליסטים הוא {item['analyst_target']}; אזור המחיר לבדיקה הוא {item['buy_zone']}.")
+                st.markdown(f"**What the company does:** {item['what_they_do']}")
+                st.markdown(f"**Why it is in the final 5:** {item['why']}")
+                st.markdown(f"**Who said what:** {item['who_said']}")
+                st.markdown(f"**Simple note:** {item['dad_note']}")
+                st.markdown(f"**Price discipline:** Analyst target is {item['analyst_target']}; buy area to check is {item['buy_zone']}.")
                 if item["sources"]:
-                    st.markdown("**מקורות**")
+                    st.markdown("**Sources**")
                     for label, url in item["sources"]:
                         st.markdown(f"- [{label}]({url})")
 
