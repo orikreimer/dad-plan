@@ -70,6 +70,110 @@ VERIFIED_DATA_COLUMNS = [
     "verified_source_links",
 ]
 
+FINAL_FIVE = [
+    {
+        "rank": 1,
+        "ticker": "DLR",
+        "company": "Digital Realty Trust",
+        "exchange": "NYSE, USA",
+        "role": "REIT גלובלי ישיר של דאטה סנטרים",
+        "risk": "בינוני",
+        "checked_price": "$174.68",
+        "analyst_view": "S&P Global consensus: Buy",
+        "analyst_target": "$219.59",
+        "buy_zone": "$175-$185",
+        "what_they_do": "Digital Realty מחזיקה ומפעילה קמפוסים גדולים של דאטה סנטרים ללקוחות ענן, חברות גדולות ולקוחות שצריכים הרבה חשמל ומחשוב.",
+        "why": "זו אחת הדרכים הכי ברורות בבורסה להיחשף לנדלן של דאטה סנטרים ולביקוש של AI ו-hyperscale, בלי ללכת לשמות ספקולטיביים מדי.",
+        "who_said": "בסקר האנליסטים של S&P Global הקונצנזוס הוא Buy ויעד ממוצע של $219.59. BMO נתנה Buy עם יעד $220, Bernstein נתנה Buy עם יעד $232, ו-Truist נתנה Buy עם יעד $225. Ben McMillan מ-IDX Advisors הדגיש את DLR כשם תשתיות AI עם חוזים ארוכים ותזרים יחסית מוגן בטווח הקצר.",
+        "dad_note": "זו הבחירה הראשונה אם רוצים מניית דאטה סנטרים ישירה, אבל בלי להיכנס להרפתקאות מסוכנות מדי.",
+        "sources": [
+            ("StockAnalysis / S&P Global DLR target", "https://stockanalysis.com/stocks/dlr/forecast/"),
+            ("Business Insider / Ben McMillan", "https://www.businessinsider.com/stocks-to-buy-ai-trade-hyperscaler-spending-pullback-amzn-dlr-2026-7"),
+        ],
+    },
+    {
+        "rank": 2,
+        "ticker": "EQIX",
+        "company": "Equinix",
+        "exchange": "Nasdaq, USA",
+        "role": "פלטפורמת דאטה סנטרים איכותית וגלובלית",
+        "risk": "נמוך-בינוני",
+        "checked_price": "$1,005.38",
+        "analyst_view": "S&P Global consensus: Buy",
+        "analyst_target": "$1,199",
+        "buy_zone": "$950-$1,030",
+        "what_they_do": "Equinix מפעילה רשת עולמית של דאטה סנטרים וחיבורי תקשורת, שבה חברות מחברות ענן, רשתות ותשתיות.",
+        "why": "זה שם האיכות בקבוצה: הרבה לקוחות, פריסה עולמית, ופחות תלות בלקוח AI אחד או בחוזה אחד.",
+        "who_said": "בסקר האנליסטים של S&P Global הקונצנזוס הוא Buy ויעד ממוצע של $1,199. Citi נתנה Buy עם יעד $1,260, Bernstein נתנה Buy עם יעד $1,222, ו-Stifel נתנה Buy עם יעד $1,250. UBS שמרה על Buy עם יעד $1,035 אחרי יום האנליסטים של Equinix.",
+        "dad_note": "זו מניית האיכות. היא לא זולה, אבל מתאימה יותר למשקיע סבלני שרוצה פחות דרמה.",
+        "sources": [
+            ("StockAnalysis / S&P Global EQIX target", "https://stockanalysis.com/stocks/eqix/forecast/"),
+            ("Investopedia / UBS commentary", "https://www.investopedia.com/equinix-stock-leads-s-and-p-decliners-as-investors-digest-growth-targets-11761647"),
+            ("Business Insider / Ben McMillan", "https://www.businessinsider.com/stocks-to-buy-ai-trade-hyperscaler-spending-pullback-amzn-dlr-2026-7"),
+        ],
+    },
+    {
+        "rank": 3,
+        "ticker": "NXT.AX",
+        "company": "NEXTDC",
+        "exchange": "ASX, Australia",
+        "role": "מניית צמיחה אוסטרלית ישירה של דאטה סנטרים",
+        "risk": "בינוני-גבוה",
+        "checked_price": "A$13.80",
+        "analyst_view": "S&P Global consensus: Strong Buy",
+        "analyst_target": "A$20.40",
+        "buy_zone": "A$14-A$16",
+        "what_they_do": "NEXTDC בונה ומפעילה דאטה סנטרים באוסטרליה ובאסיה-פסיפיק ללקוחות ענן, חברות, ממשלה ו-AI.",
+        "why": "זו חשיפה נקייה יחסית לצמיחת דאטה סנטרים מחוץ לארהב. יש יותר אפסייד, אבל גם יותר סיכון ביצוע, מימון ובנייה.",
+        "who_said": "בסקר האנליסטים של S&P Global הקונצנזוס הוא Strong Buy ויעד ממוצע של A$20.40. Citi נתנה Buy עם יעד A$19.10, RBC נתנה Buy עם יעד A$22.00, ו-Canaccord נתנה Buy עם יעד A$22.55.",
+        "dad_note": "זו מניית צמיחה טובה, אבל היא מסוכנת יותר מ-DLR ו-EQIX כי היא תלויה יותר בבנייה ובמימון.",
+        "sources": [
+            ("StockAnalysis / S&P Global NXT target", "https://stockanalysis.com/quote/asx/NXT/forecast/"),
+            ("NEXTDC investor reports", "https://www.nextdc.com/investor-centre"),
+        ],
+    },
+    {
+        "rank": 4,
+        "ticker": "BIP / BIP.UN",
+        "company": "Brookfield Infrastructure Partners",
+        "exchange": "NYSE + TSX, Canada",
+        "role": "תשתיות מגוונות עם חשיפה לדאטה",
+        "risk": "בינוני",
+        "checked_price": "$36.96 USD",
+        "analyst_view": "S&P Global consensus: Buy",
+        "analyst_target": "$44.18 USD",
+        "buy_zone": "BIP under $38 USD",
+        "what_they_do": "Brookfield Infrastructure מחזיקה תשתיות חיוניות: חשמל, תחבורה, אנרגיה ותשתיות דאטה כמו מגדלים, סיבים ודאטה סנטרים.",
+        "why": "זו לא מניית דאטה סנטרים נקייה, אבל היא מגוונת יותר. היא יכולה ליהנות מביקוש ל-AI ותשתיות דיגיטליות בלי להיות תלויה רק בדאטה סנטרים.",
+        "who_said": "בסקר האנליסטים של S&P Global הקונצנזוס הוא Buy ויעד ממוצע של $44.18. CIBC נתנה Buy עם יעד $45, Morgan Stanley נתנה Buy עם יעד $46, TD Cowen נתנה Buy עם יעד $57, Scotiabank נתנה Buy עם יעד $44, ו-BMO נתנה Buy עם יעד $44. Brookfield עצמה אומרת ש-AI מגדיל ביקוש לתשתיות דיגיטליות.",
+        "dad_note": "זו הבחירה אם רוצים תשתיות והכנסה יותר מגוונת, לא מניית דאטה סנטרים טהורה.",
+        "sources": [
+            ("StockAnalysis / S&P Global BIP target", "https://stockanalysis.com/stocks/bip/forecast/"),
+            ("Brookfield Infrastructure official overview", "https://bip.brookfield.com/"),
+        ],
+    },
+    {
+        "rank": 5,
+        "ticker": "GMG.AX",
+        "company": "Goodman Group",
+        "exchange": "ASX, Australia",
+        "role": "נדלן תעשייתי עם צנרת דאטה סנטרים",
+        "risk": "בינוני",
+        "checked_price": "A$30.68",
+        "analyst_view": "S&P Global consensus: Strong Buy",
+        "analyst_target": "A$34.66",
+        "buy_zone": "A$30-A$32",
+        "what_they_do": "Goodman מחזיקה, מפתחת ומנהלת נכסי לוגיסטיקה ונדלן תעשייתי, ובשנים האחרונות משתמשת בקרקעות עם גישה לחשמל גם לפיתוח דאטה סנטרים.",
+        "why": "זו לא חברת דאטה סנטרים טהורה, אבל היא מפעילת נדלן איכותית עם אפשרות ליהנות מביקוש לדאטה סנטרים.",
+        "who_said": "בסקר האנליסטים של S&P Global הקונצנזוס הוא Strong Buy ויעד ממוצע של A$34.66. Morgan Stanley נתנה Buy עם יעד A$36.15, Citi נתנה Buy עם יעד A$40.00, Bell Potter נתנה Buy עם יעד A$35.50, ו-Jefferies נתנה Buy עם יעד A$34.13.",
+        "dad_note": "חברה טובה, אבל פחות נקייה. כדאי רק במחיר סביר כי האפסייד ליעד הממוצע קטן יותר מאשר ב-NEXTDC.",
+        "sources": [
+            ("StockAnalysis / S&P Global GMG target", "https://stockanalysis.com/quote/asx/GMG/forecast/"),
+            ("Goodman data centres", "https://www.goodman.com/our-properties/data-centres"),
+        ],
+    },
+]
+
 
 def file_version(path: str) -> int:
     """Return a small cache key so edited CSV files refresh in Streamlit."""
@@ -674,6 +778,52 @@ def render_dad_guide() -> None:
         )
 
 
+def render_final_five() -> None:
+    with st.container(border=True):
+        render_panel_start("Final 5 stocks")
+        render_hebrew_note(
+            "חמש המניות הסופיות לאבא",
+            "זו הרשימה המצומצמת לפי הבדיקה האחרונה: ארהב, אוסטרליה וקנדה בלבד. זה לא אומר לקנות היום בכל מחיר. הטור Buy area הוא אזור מחיר הגיוני לבדיקה נוספת, לא פקודת קנייה.",
+        )
+
+        final_chart = pd.DataFrame(
+            [
+                {
+                    "דירוג": item["rank"],
+                    "מניה": f"{item['company']} ({item['ticker']})",
+                    "בורסה": item["exchange"],
+                    "סוג חשיפה": item["role"],
+                    "סיכון": item["risk"],
+                    "מחיר שנבדק": item["checked_price"],
+                    "דעת אנליסטים": item["analyst_view"],
+                    "יעד ממוצע": item["analyst_target"],
+                    "אזור קנייה לבדיקה": item["buy_zone"],
+                }
+                for item in FINAL_FIVE
+            ]
+        )
+        st.dataframe(final_chart, hide_index=True, use_container_width=True)
+        st.caption("המחירים ויעדי האנליסטים נבדקו באינטרנט ב-2026-07-07. לפני החלטה אמיתית צריך לבדוק שוב מחיר וחדשות.")
+
+        render_hebrew_note(
+            "איך לקרוא את הטבלה",
+            "Avg target הוא יעד ממוצע של אנליסטים, לא הבטחה. Buy area הוא אזור שבו כדאי להתחיל בדיקה, לא מחיר שחייבים לקנות בו. אם המחיר רץ הרבה מעל האזור, עדיף לחכות או לבדוק מחדש.",
+        )
+
+        st.markdown("### הסבר לכל אחת מחמש המניות")
+        for item in FINAL_FIVE:
+            with st.expander(f"{item['rank']}. {item['company']} ({item['ticker']})", expanded=item["rank"] == 1):
+                st.markdown(f"**מה החברה עושה:** {item['what_they_do']}")
+                st.markdown(f"**למה היא בחמישייה:** {item['why']}")
+                st.markdown(f"**מי אמר מה:** {item['who_said']}")
+                st.markdown(f"**הערה פשוטה לאבא:** {item['dad_note']}")
+                st.markdown(f"**משמעת מחיר:** יעד האנליסטים הוא {item['analyst_target']}; אזור המחיר לבדיקה הוא {item['buy_zone']}.")
+                if item["sources"]:
+                    st.markdown("**מקורות**")
+                    for label, url in item["sources"]:
+                        st.markdown(f"- [{label}]({url})")
+
+
 def apply_filters(df: pd.DataFrame) -> pd.DataFrame:
     with st.container(border=True):
         render_panel_start("Quick filters")
@@ -1211,6 +1361,8 @@ def main() -> None:
     visible = filtered if not filtered.empty else df
 
     render_data_source_note(df)
+
+    render_final_five()
 
     render_summary_cards(visible)
 
